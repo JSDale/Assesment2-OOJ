@@ -1,8 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.GridBagConstraints;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Gui extends JFrame
+public class Gui extends JFrame implements ActionListener
 {
     private JLabel lblStormType;
     private JLabel lblStormName;
@@ -48,10 +50,11 @@ public class Gui extends JFrame
         lblAdvice = new JLabel();
 
         btnCreate = new JButton("Add Storm");
+        btnCreate.addActionListener(this);
         btnDelete = new JButton("DeleteStorm");
+        btnDelete.addActionListener(this);
         btnEdit = new JButton("Edit/ Show Storm Info");
-
-
+        btnEdit.addActionListener(this);
 
     }
 
@@ -138,6 +141,30 @@ public class Gui extends JFrame
         constraints.gridheight = 5;
         constraints.gridwidth = 5;
         this.add(btnDelete, constraints);
+
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent ev)
+    {
+        if(ev.getSource().equals(btnCreate))
+        {
+            //calls interface to get classification and display warning
+            //add student to array
+        }
+
+        else if(ev.getSource().equals(btnDelete))
+        {
+            //find correct storm in storm list and delete
+        }
+
+        else if(ev.getSource().equals(btnEdit))
+        {
+            //find correct storm by name
+            //display storm info in text box
+        }
+        //might need an else to handle unexpected issues.
 
     }
 }

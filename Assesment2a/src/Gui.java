@@ -6,6 +6,11 @@ import java.awt.event.ActionListener;
 
 public class Gui extends JFrame implements ActionListener
 {
+    private Huricane hurricane = new Huricane();
+    private Blizzard blizzard = new Blizzard();
+    private Storm tornado = new Tornado();
+
+
     private JLabel lblStormType;
     private JLabel lblStormName;
     private JLabel lblWindSpeed;

@@ -8,35 +8,34 @@ public class Tornado extends Storm
     @Override
     public String getClassificationFromSub()
     {
-        switch(windSpeed)
+        if (windSpeed >=40 && windSpeed <=72)
         {
-            case: windSpeed <=39;
-                classification = "Unclassified";
-                return classification;
-
-            case: windSpeed >=40 && windSpeed <=72;
-                classification = "f0";
-                return classification;
-
-            case: windSpeed >=73 && windSpeed <=112;
-                classificaion = "f1";
-                return classification;
-
-            case: windSpeed >=113 && windSpeed <=157;
-                classification = "f2";
-                return classification;
-
-            case: windSpeed >=158 && windSpeed <=205;
-                classification = "f3";
-                return classification;
-
-            case: windSpeed >=206 && windSpeed <=260;
-                classification = "f4";
-                return classification;
-
-            case: windSpeed >=261;
-                classification = "f5";
-                return classification;
+            classification = "f0";
         }
+        else if (windSpeed >=73 && windSpeed <=112)
+        {
+            classification = "f1";
+        }
+        else if (windSpeed >=113 && windSpeed <=157)
+        {
+            classification = "f2";
+        }
+        else if (windSpeed >=158 && windSpeed <=205)
+        {
+            classification = "f3";
+        }
+        else if (windSpeed >=206 && windSpeed <=260)
+        {
+            classification = "f4";
+        }
+        else if (windSpeed >=261)
+        {
+            classification = "f5";
+        }
+        else
+        {
+            classification = "Unclassified";
+        }
+        return classification;
     }
 }

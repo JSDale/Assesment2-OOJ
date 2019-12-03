@@ -141,8 +141,6 @@ public class Gui extends JFrame implements ActionListener
         constraints.gridheight = 5;
         constraints.gridwidth = 5;
         this.add(btnDelete, constraints);
-
-
     }
 
     @Override

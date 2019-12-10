@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public abstract class Storm
 {
     protected static String stormName;
@@ -6,7 +8,7 @@ public abstract class Storm
     protected static int temp;
     protected static String classification;
     protected static String advice;
-    public Storm[] storedStorm = new Storm[20];
+
 
     //getters
     public static int getWindSpeed() { return windSpeed; }
@@ -49,17 +51,6 @@ public abstract class Storm
 
     public static void setAdvice(String advice) {Storm.advice = advice;}
 
-    //public Storm()
-    //{
-    //    for (int i = 0; i < storedStorm.length; i++)
-    //    {
-           //TODO this throws all kinds of exceptions. Needs to be re-worked
-    //
-    //        storedStorm[i] = new Blizzard();
-    //        storedStorm[i] = new Huricane();
-    //        storedStorm[i] = new Tornado();
-    //    }
-    //}
 
     //methods
     public abstract String GetClassification();

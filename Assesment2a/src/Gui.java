@@ -1,3 +1,5 @@
+import com.sun.source.tree.TryTree;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.GridBagConstraints;
@@ -29,6 +31,7 @@ public class Gui extends JFrame implements ActionListener
     private JButton btnEdit;
 
     private String[] stormTypes = {"", "Tornado", "Blizzard", "Hurricane"};
+    private CreateStorm createStorm = new CreateStorm();
 
     public Gui()
     {
@@ -37,6 +40,7 @@ public class Gui extends JFrame implements ActionListener
         var constraints = new GridBagConstraints();
         InitComponents();
         LayoutComponents(constraints);
+
     }
 
     private void InitComponents()
@@ -154,7 +158,10 @@ public class Gui extends JFrame implements ActionListener
         if(ev.getSource().equals(btnCreate))
         {
             //calls interface to get classification and display warning
-            //add student to array
+            //add storm to array
+            createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
+                    combStormType.getSelectedItem().toString(), txtfTemp.getText());
+
         }
 
         else if(ev.getSource().equals(btnDelete))

@@ -6,8 +6,14 @@ public class Blizzard extends Storm
     }
 
     @Override
-    public String getClassificationFromSub()
+    public String GetClassification()
     {
         return classification;
+    }
+
+    @Override
+    public String GetAdvice(String classification)
+    {
+        return null;
     }
 }

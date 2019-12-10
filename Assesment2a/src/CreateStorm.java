@@ -54,4 +54,17 @@ public class CreateStorm
 
         return false;
     }
+
+    public String GetCorrectAdvice(Huricane hurricane)
+    {
+        String advice = "No advice to display.";
+        Storm.setAdvice(advice);
+
+        if (Storm.getStormType() == "Hurricane")
+        {
+           Storm.setAdvice(hurricane.GetAdvice(hurricane.GetClassification()));
+        }
+
+        return Storm.getAdvice();
+    }
 }

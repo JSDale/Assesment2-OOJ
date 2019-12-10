@@ -6,7 +6,7 @@ public class Tornado extends Storm
     }
 
     @Override
-    public String getClassificationFromSub()
+    public String GetClassification()
     {
         if (windSpeed >=40 && windSpeed <=72)
         {
@@ -37,5 +37,11 @@ public class Tornado extends Storm
             classification = "Unclassified";
         }
         return classification;
+    }
+
+    @Override
+    public String GetAdvice(String classification)
+    {
+        return null;
     }
 }

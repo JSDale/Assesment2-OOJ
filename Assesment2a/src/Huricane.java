@@ -1,7 +1,7 @@
 public class Huricane extends Storm
 {
     @Override
-    public String getClassificationFromSub()
+    public String GetClassification()
     {
         if (windSpeed >=74 && windSpeed <=95)
         {
@@ -28,5 +28,19 @@ public class Huricane extends Storm
             classification = "Tropical Storm";
         }
         return classification;
+    }
+
+    @Override
+    public String GetAdvice(String classification)
+    {
+        //TODO set up proper advice
+        switch(classification)
+        {
+            case "Category 1":
+                advice = "meh";
+                return advice;
+
+        }
+        return "No advice to give.";
     }
 }

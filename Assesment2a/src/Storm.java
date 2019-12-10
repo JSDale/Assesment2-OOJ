@@ -6,7 +6,7 @@ public abstract class Storm
     protected static int temp;
     protected static String classification;
     protected static String advice;
-    protected Storm[] storedStorm = new Storm[20];
+    public Storm[] storedStorm = new Storm[20];
 
     //getters
     public static int getWindSpeed() { return windSpeed; }
@@ -47,11 +47,14 @@ public abstract class Storm
 
     public static void setStormName(String stormName) {Storm.stormName = stormName; }
 
+    public static void setAdvice(String advice) {Storm.advice = advice;}
+
     //public Storm()
     //{
     //    for (int i = 0; i < storedStorm.length; i++)
     //    {
-           //TODO fix this as i think the previous data types are going to get overwritten
+           //TODO this throws all kinds of exceptions. Needs to be re-worked
+    //
     //        storedStorm[i] = new Blizzard();
     //        storedStorm[i] = new Huricane();
     //        storedStorm[i] = new Tornado();
@@ -59,6 +62,8 @@ public abstract class Storm
     //}
 
     //methods
-    public abstract String getClassificationFromSub();
+    public abstract String GetClassification();
+
+    public abstract String GetAdvice(String classification);
 
 }

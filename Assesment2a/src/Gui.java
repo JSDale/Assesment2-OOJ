@@ -161,6 +161,7 @@ public class Gui extends JFrame implements ActionListener
             //add storm to array
             createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
                     combStormType.getSelectedItem().toString(), txtfTemp.getText());
+            DisplayAdvice();
 
         }
 
@@ -176,5 +177,11 @@ public class Gui extends JFrame implements ActionListener
         }
         //might need an else to handle unexpected issues.
 
+    }
+
+    public void DisplayAdvice()
+    {
+        createStorm.GetCorrectAdvice(hurricane);
+        lblAdvice.setText(Storm.getAdvice());
     }
 }

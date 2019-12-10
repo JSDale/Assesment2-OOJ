@@ -47,16 +47,16 @@ public abstract class Storm
 
     public static void setStormName(String stormName) {Storm.stormName = stormName; }
 
-    public Storm()
-    {
-        for (int i = 0; i < storedStorm.length; i++)
-        {
-            //TODO fix this as i think the previous data types are going to get overwritten
-            storedStorm[i] = new Blizzard();
-            storedStorm[i] = new Huricane();
-            storedStorm[i] = new Tornado();
-        }
-    }
+    //public Storm()
+    //{
+    //    for (int i = 0; i < storedStorm.length; i++)
+    //    {
+           //TODO fix this as i think the previous data types are going to get overwritten
+    //        storedStorm[i] = new Blizzard();
+    //        storedStorm[i] = new Huricane();
+    //        storedStorm[i] = new Tornado();
+    //    }
+    //}
 
     //methods
     public abstract String getClassificationFromSub();

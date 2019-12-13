@@ -8,8 +8,8 @@ import java.awt.event.ActionListener;
 
 public class Gui extends JFrame implements ActionListener
 {
-    private Huricane hurricane = new Huricane();
-    private Blizzard blizzard = new Blizzard();
+    private Storm hurricane = new Huricane();
+    private Storm blizzard = new Blizzard();
     private Storm tornado = new Tornado();
 
 
@@ -32,7 +32,6 @@ public class Gui extends JFrame implements ActionListener
 
     private String[] stormTypes = {"", "Tornado", "Blizzard", "Hurricane"};
     private CreateStorm createStorm = new CreateStorm();
-    private Storm storm;
     private StormAdviceCentre stormAdviceCentre = new StormAdviceCentre();
 
     public Gui()
@@ -161,9 +160,13 @@ public class Gui extends JFrame implements ActionListener
         {
             //calls interface to get classification and display warning
             //add storm to array
-            createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
-                    combStormType.getSelectedItem().toString(), txtfTemp.getText(), storm, stormAdviceCentre);
-            DisplayAdvice();
+            if(combStormType.getSelectedItem().toString() == "Hurricane")
+            {
+                createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
+                        combStormType.getSelectedItem().toString(), txtfTemp.getText(), hurricane, stormAdviceCentre);
+                DisplayAdvice();
+            }
+
 
         }
 
@@ -183,7 +186,7 @@ public class Gui extends JFrame implements ActionListener
 
     public void DisplayAdvice()
     {
-        stormAdviceCentre.GetCorrectAdvice(hurricane);
+        stormAdviceCentre.GetCorrectAdvice(hurricane, tornado, blizzard);
         lblAdvice.setText(Storm.getAdvice());
     }
 }

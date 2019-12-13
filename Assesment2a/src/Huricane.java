@@ -37,7 +37,7 @@ public class Huricane extends Storm
         switch(classification)
         {
             case "Category 1":
-                advice = "";
+                advice = "test";
                 return advice;
             case "Category 2":
                 advice = "";

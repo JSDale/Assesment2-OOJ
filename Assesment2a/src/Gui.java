@@ -85,25 +85,19 @@ public class Gui extends JFrame implements ActionListener
         constraints.gridx = 0;
         this.add(lblStormName, constraints);
 
-        constraints.gridy = 15;
+        constraints.gridy = 20;
         constraints.gridx = 0;
         this.add(lblWindSpeed, constraints);
 
-        constraints.gridy = 20;
+        constraints.gridy = 30;
         constraints.gridx = 0;
-        constraints.gridwidth = 2;
-        constraints.gridheight = 5;
-        lblTemp.setHorizontalAlignment(2);
         this.add(lblTemp, constraints);
 
-        constraints.gridy = 25;
+        constraints.gridy =40;
         constraints.gridx = 0;
-        constraints.gridwidth = 2;
-        constraints.gridheight = 5;
-
         this.add(lblTempCont, constraints);
 
-        constraints.gridy = 30;
+        constraints.gridy = 50;
         constraints.gridx = 0;
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
@@ -129,33 +123,33 @@ public class Gui extends JFrame implements ActionListener
         constraints.fill = GridBagConstraints.HORIZONTAL;
         this.add(txtfWindSpeed, constraints);
 
-        constraints.gridy = 25;
+        constraints.gridy = 30;
         constraints.gridx = 2;
         constraints.gridwidth = 6;
         constraints.gridheight = 6;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         this.add(txtfTemp, constraints);
 
-        constraints.gridy = 25;
+        constraints.gridy = 40;
         constraints.gridx = 2;
         constraints.gridwidth = 6;
         constraints.gridheight = 6;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         this.add(lblAdvice, constraints);
 
-        constraints.gridy = 50;
+        constraints.gridy = 75;
         constraints.gridx = 0;
         constraints.gridheight = 1;
         constraints.gridwidth = 1;
         this.add(btnCreate, constraints);
 
-        constraints.gridy = 50;
+        constraints.gridy = 75;
         constraints.gridx = 1;
         constraints.gridheight = 1;
         constraints.gridwidth = 1;
         this.add(btnEdit, constraints);
 
-        constraints.gridy = 50;
+        constraints.gridy = 75;
         constraints.gridx = 2;
         constraints.gridheight = 1;
         constraints.gridwidth = 1;

@@ -5,8 +5,7 @@ public class CreateStorm
     private int convertedTemp = 0;
     private int convertedWindSpeed =0;
 
-    public void PopulateStormVariables(String windSpeed, String stormName, String stormType, String stormTemp, Storm storm,
-                                       StormAdviceCentre stormAdviceCentre)
+    public void PopulateStormVariables(String windSpeed, String stormName, String stormType, String stormTemp)
     {
         //TODO do while loop so you can't enter a non int value
         try
@@ -47,8 +46,6 @@ public class CreateStorm
             } else { Storm.setTemp(0); }
         }
         else {Storm.setTemp(0);}
-
-        stormAdviceCentre.AddStorm(stormAdviceCentre, storm);
     }
 
 }

@@ -21,14 +21,25 @@ public class StormAdviceCentre
     {
         if(stormAdviceCentre.storedStorm.size() <20)
         {
-            stormAdviceCentre.storedStorm.put(Storm.getStormName(), storm);
-            System.out.println(storedStorm.get(storm.getStormName()).ToString());
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+                if(storedStorm.containsKey(storm.getStormName()) == false)
+                {
+                    stormAdviceCentre.storedStorm.put(Storm.getStormName(), storm);
+                    System.out.println(storedStorm.get(storm.getStormName()).ToString());
+                    return true;
+                }
 
+                System.out.println("Storm Already Exists");
+                return false;
+        }
+        return false;
+    }
+
+    public boolean EditStorm()
+    {
+        for (int i = 0; i < storedStorm.size(); i++)
+        {
+
+        }
+        return false;
     }
 }

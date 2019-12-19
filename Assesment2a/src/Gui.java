@@ -173,7 +173,8 @@ public class Gui extends JFrame implements ActionListener
             if(combStormType.getSelectedItem().toString() == "Hurricane")
             {
                 createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
-                        combStormType.getSelectedItem().toString(), txtfTemp.getText(), hurricane, stormAdviceCentre);
+                        combStormType.getSelectedItem().toString(), txtfTemp.getText());
+                stormAdviceCentre.AddStorm(stormAdviceCentre, hurricane);
                 DisplayAdvice();
             }
 

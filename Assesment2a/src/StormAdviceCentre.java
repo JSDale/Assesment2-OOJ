@@ -22,7 +22,7 @@ public class StormAdviceCentre
         if(stormAdviceCentre.storedStorm.size() <20)
         {
             stormAdviceCentre.storedStorm.put(Storm.getStormName(), storm);
-            System.out.println(stormAdviceCentre.storedStorm.get("bob"));
+            System.out.println(storedStorm.get(storm.getStormName()).ToString());
             return true;
         }
         else

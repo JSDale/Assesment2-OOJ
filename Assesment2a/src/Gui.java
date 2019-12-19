@@ -1,6 +1,5 @@
-import com.sun.source.tree.TryTree;
-
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
@@ -123,14 +122,14 @@ public class Gui extends JFrame implements ActionListener
         constraints.fill = GridBagConstraints.HORIZONTAL;
         this.add(txtfStormName, constraints);
 
-        constraints.gridy = 15;
+        constraints.gridy = 20;
         constraints.gridx = 2;
         constraints.gridwidth = 6;
         constraints.gridheight = 6;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         this.add(txtfWindSpeed, constraints);
 
-        constraints.gridy = 20;
+        constraints.gridy = 25;
         constraints.gridx = 2;
         constraints.gridwidth = 6;
         constraints.gridheight = 6;
@@ -170,11 +169,25 @@ public class Gui extends JFrame implements ActionListener
         {
             //calls interface to get classification and display warning
             //add storm to array
-            if(combStormType.getSelectedItem().toString() == "Hurricane")
+            if(combStormType.getSelectedItem().toString().equals("Hurricane"))
             {
                 createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
                         combStormType.getSelectedItem().toString(), txtfTemp.getText());
                 stormAdviceCentre.AddStorm(stormAdviceCentre, hurricane);
+                DisplayAdvice();
+            }
+            else if(combStormType.getSelectedItem().toString().equals("Hurricane"))
+            {
+                createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
+                        combStormType.getSelectedItem().toString(), txtfTemp.getText());
+                stormAdviceCentre.AddStorm(stormAdviceCentre, tornado);
+                DisplayAdvice();
+            }
+            else if(combStormType.getSelectedItem().toString().equals("Hurricane"))
+            {
+                createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
+                        combStormType.getSelectedItem().toString(), txtfTemp.getText());
+                stormAdviceCentre.AddStorm(stormAdviceCentre, blizzard);
                 DisplayAdvice();
             }
 

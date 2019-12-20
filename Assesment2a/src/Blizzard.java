@@ -31,6 +31,12 @@ public class Blizzard extends Storm
             case "snow storm":
                 advice = "Take care and avoid travel if possible";
                 return advice;
+            case "blizzard":
+                advice = "Keep warm, Do not travel unless absolutely essential";
+                return advice;
+            case "severe blizzard":
+                advice = "Keep warm, avoid all travel";
+                return advice;
         }
         return advice = "nothing to advise";
     }

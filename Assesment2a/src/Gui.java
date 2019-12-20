@@ -170,14 +170,14 @@ public class Gui extends JFrame implements ActionListener
                 stormAdviceCentre.AddStorm(stormAdviceCentre, hurricane);
                 DisplayAdvice();
             }
-            else if(combStormType.getSelectedItem().toString().equals("Hurricane"))
+            else if(combStormType.getSelectedItem().toString().equals("Blizzard"))
             {
                 createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
                         combStormType.getSelectedItem().toString(), txtfTemp.getText());
                 stormAdviceCentre.AddStorm(stormAdviceCentre, tornado);
                 DisplayAdvice();
             }
-            else if(combStormType.getSelectedItem().toString().equals("Hurricane"))
+            else if(combStormType.getSelectedItem().toString().equals("Tornado"))
             {
                 createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
                         combStormType.getSelectedItem().toString(), txtfTemp.getText());

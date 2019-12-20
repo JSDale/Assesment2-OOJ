@@ -49,8 +49,7 @@ public class Tornado extends Storm
             case "f3":
             case "f4":
             case "f5":
-                advice = "Find underground shelter, crouch near to the floor covering your\n" +
-                        "head with your hands";
+                advice = "Find underground shelter, crouch near to the floor covering your head with your hands";
                 return advice;
         }
         return advice;

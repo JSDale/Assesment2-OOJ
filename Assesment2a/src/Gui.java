@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
@@ -33,6 +32,9 @@ public class Gui extends JFrame implements ActionListener
     private String[] stormTypes = {"", "Tornado", "Blizzard", "Hurricane"};
     private CreateStorm createStorm = new CreateStorm();
     private StormAdviceCentre stormAdviceCentre = new StormAdviceCentre();
+
+    public static boolean windSpeedIsInt = false;
+    public static boolean tempIsInt = false;
 
     public Gui()
     {
@@ -161,26 +163,48 @@ public class Gui extends JFrame implements ActionListener
     {
         if(ev.getSource().equals(btnCreate))
         {
+            tempIsInt = false;
+            windSpeedIsInt = false;
+
+            //hurricane
             if(combStormType.getSelectedItem().toString().equals("Hurricane"))
             {
                 createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
                         combStormType.getSelectedItem().toString(), txtfTemp.getText());
-                stormAdviceCentre.AddStorm(stormAdviceCentre, hurricane);
-                DisplayAdvice();
+
+                if(windSpeedIsInt == true)
+                {
+                    stormAdviceCentre.AddStorm(stormAdviceCentre, tornado);
+                    DisplayAdvice();
+                }
+                else{JOptionPane.showMessageDialog(null, "Please enter an integer into the wind speed"); }
             }
             else if(combStormType.getSelectedItem().toString().equals("Blizzard"))
             {
                 createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
                         combStormType.getSelectedItem().toString(), txtfTemp.getText());
-                stormAdviceCentre.AddStorm(stormAdviceCentre, blizzard);
-                DisplayAdvice();
+
+                //blizzard
+                if(windSpeedIsInt == true  && tempIsInt == true)
+                {
+                    stormAdviceCentre.AddStorm(stormAdviceCentre, tornado);
+                    DisplayAdvice();
+                }
+                else{JOptionPane.showMessageDialog(null, "Please enter an integer into the wind speed and or temp"); }
             }
+
+            //tornado
             else if(combStormType.getSelectedItem().toString().equals("Tornado"))
             {
                 createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
                         combStormType.getSelectedItem().toString(), txtfTemp.getText());
-                stormAdviceCentre.AddStorm(stormAdviceCentre, tornado);
-                DisplayAdvice();
+
+                if(windSpeedIsInt == true)
+                {
+                    stormAdviceCentre.AddStorm(stormAdviceCentre, tornado);
+                    DisplayAdvice();
+                }
+                else{JOptionPane.showMessageDialog(null, "Please enter an integer into the wind speed"); }
             }
 
         }

@@ -3,7 +3,15 @@ public class Huricane extends Storm
     @Override
     public String GetClassification()
     {
-        if (windSpeed >=74 && windSpeed <=95)
+        if(windSpeed <39 && windSpeed >=25)
+        {
+            classification = "Tropical Depression";
+        }
+        else if (windSpeed <= 73 && windSpeed >= 39)
+    {
+        classification = "Tropical Storm";
+    }
+        else if (windSpeed >=74 && windSpeed <=95)
         {
             classification = "Category 1";
         }
@@ -25,7 +33,7 @@ public class Huricane extends Storm
         }
         else
         {
-            classification = "Tropical Storm";
+            classification = "not a Hurricane";
         }
         return classification;
     }
@@ -37,10 +45,8 @@ public class Huricane extends Storm
         switch(classification)
         {
             case "Category 1":
-                advice = "test";
-                return advice;
             case "Category 2":
-                advice = "";
+                advice = "“Close storm shutters and stay away from windows";
                 return advice;
             case "Category 3":
                 advice = "";
@@ -49,9 +55,6 @@ public class Huricane extends Storm
                 advice = "";
                 return advice;
             case "Category 5":
-                advice = "";
-                return advice;
-            case "Category 6":
                 advice = "";
                 return advice;
             case "Tropical Storm":

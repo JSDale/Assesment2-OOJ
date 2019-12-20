@@ -1,4 +1,3 @@
-import java.util.HashMap;
 
 public abstract class Storm
 {
@@ -38,11 +37,6 @@ public abstract class Storm
     public static void setTemp(int temp)
     {
         Storm.temp = temp;
-    }
-
-    public static void setClassification(String classification)
-    {
-        Storm.classification = classification;
     }
 
     public static void setStormType(String stormType) {Storm.stormType = stormType; }

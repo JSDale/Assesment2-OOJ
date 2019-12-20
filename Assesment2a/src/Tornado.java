@@ -1,5 +1,15 @@
 public class Tornado extends Storm
 {
+    public Tornado()
+    {
+        this.stormName = getStormName();
+        this.stormType = getStormType();
+        this.windSpeed = getWindSpeed();
+        this.temp = getTemp();
+        this.classification = getClassification();
+        this.advice = getAdvice();
+    }
+
     @Override
     public String GetClassification()
     {

@@ -6,9 +6,9 @@ import java.awt.event.ActionListener;
 
 public class Gui extends JFrame implements ActionListener
 {
-    private Storm hurricane = new Huricane();
-    private Storm blizzard = new Blizzard();
-    private Storm tornado = new Tornado();
+    Storm hurricane = new Huricane();
+    Storm tornado = new Tornado();
+    Storm blizzard = new Blizzard();
 
 
     private JLabel lblStormType;
@@ -27,7 +27,8 @@ public class Gui extends JFrame implements ActionListener
 
     private JButton btnCreate;
     private JButton btnDelete;
-    private JButton btnEdit;
+    private JButton btnShowStormInfo;
+    private JButton btnUpdateStorm;
 
     private String[] stormTypes = {"", "Tornado", "Blizzard", "Hurricane"};
     private CreateStorm createStorm = new CreateStorm();
@@ -66,8 +67,10 @@ public class Gui extends JFrame implements ActionListener
         btnCreate.addActionListener(this);
         btnDelete = new JButton("DeleteStorm");
         btnDelete.addActionListener(this);
-        btnEdit = new JButton("Edit/ Show Storm Info");
-        btnEdit.addActionListener(this);
+        btnShowStormInfo = new JButton("Show Storm Info");
+        btnShowStormInfo.addActionListener(this);
+        btnUpdateStorm = new JButton("Update Storm Info");
+        btnUpdateStorm.addActionListener(this);
 
     }
 
@@ -149,7 +152,13 @@ public class Gui extends JFrame implements ActionListener
         constraints.gridx = 1;
         constraints.gridheight = 1;
         constraints.gridwidth = 1;
-        this.add(btnEdit, constraints);
+        this.add(btnShowStormInfo, constraints);
+
+        constraints.gridy = 95;
+        constraints.gridx = 1;
+        constraints.gridheight = 1;
+        constraints.gridwidth = 1;
+        this.add(btnUpdateStorm, constraints);
 
         constraints.gridy = 75;
         constraints.gridx = 2;
@@ -170,11 +179,11 @@ public class Gui extends JFrame implements ActionListener
             if(combStormType.getSelectedItem().toString().equals("Hurricane"))
             {
                 createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
-                        combStormType.getSelectedItem().toString(), txtfTemp.getText());
+                        combStormType.getSelectedItem().toString(), txtfTemp.getText(), hurricane);
 
                 if(windSpeedIsInt == true)
                 {
-                    stormAdviceCentre.AddStorm(stormAdviceCentre, tornado);
+                    stormAdviceCentre.AddStorm(stormAdviceCentre, hurricane);
                     DisplayAdvice();
                 }
                 else{JOptionPane.showMessageDialog(null, "Please enter an integer into the wind speed"); }
@@ -182,12 +191,12 @@ public class Gui extends JFrame implements ActionListener
             else if(combStormType.getSelectedItem().toString().equals("Blizzard"))
             {
                 createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
-                        combStormType.getSelectedItem().toString(), txtfTemp.getText());
+                    combStormType.getSelectedItem().toString(), txtfTemp.getText(), blizzard);
 
                 //blizzard
                 if(windSpeedIsInt == true  && tempIsInt == true)
                 {
-                    stormAdviceCentre.AddStorm(stormAdviceCentre, tornado);
+                    stormAdviceCentre.AddStorm(stormAdviceCentre, blizzard);
                     DisplayAdvice();
                 }
                 else{JOptionPane.showMessageDialog(null, "Please enter an integer into the wind speed and or temp"); }
@@ -196,8 +205,8 @@ public class Gui extends JFrame implements ActionListener
             //tornado
             else if(combStormType.getSelectedItem().toString().equals("Tornado"))
             {
-                createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
-                        combStormType.getSelectedItem().toString(), txtfTemp.getText());
+               createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
+                        combStormType.getSelectedItem().toString(), txtfTemp.getText(), tornado);
 
                 if(windSpeedIsInt == true)
                 {
@@ -211,13 +220,18 @@ public class Gui extends JFrame implements ActionListener
 
         else if(ev.getSource().equals(btnDelete))
         {
-            //find correct storm in storm list and delete
+            //find a storm with a key
+            //delete
         }
 
-        else if(ev.getSource().equals(btnEdit))
+        else if(ev.getSource().equals(btnShowStormInfo))
         {
             //find correct storm by name
             //display storm info in text box
+            Storm.setStormName(txtfStormName.getText());
+            stormAdviceCentre.GetStormInfo();
+            txtfWindSpeed.setText(Storm.getStormType());
+
         }
         //might need an else to handle unexpected issues.
 

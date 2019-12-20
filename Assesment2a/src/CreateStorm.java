@@ -6,36 +6,37 @@ public class CreateStorm
     private int convertedWindSpeed =0;
 
 
-    public void PopulateStormVariables(String windSpeed, String stormName, String stormType, String stormTemp)
+    public Storm PopulateStormVariables(String windSpeed, String stormName, String stormType, String stormTemp, Storm storm)
     {
-
             try
             {
                 convertedWindSpeed = Integer.parseInt(windSpeed);
-                Storm.setWindSpeed(convertedWindSpeed);
+                storm.setWindSpeed(convertedWindSpeed);
                 Gui.windSpeedIsInt = true;
             }
             catch(Exception wrongInput) { }
 
 
-        Storm.setStormName(stormName);
+        storm.setStormName(stormName);
 
             if (stormType == "")
             {
                 JOptionPane.showMessageDialog(null, "Please enter a storm type");
             }
-            else { Storm.setStormType(stormType); }
+            else { storm.setStormType(stormType); }
 
         if (stormType.equals("Blizzard"))
         {
                 try
                 {
                     convertedTemp = Integer.parseInt(stormTemp);
-                    Storm.setTemp(convertedTemp);
+                    storm.setTemp(convertedTemp);
                     Gui.tempIsInt = true;
                 }
                 catch(Exception wrongInput) { }
         }
-        else{Storm.setTemp(0);}
+        else{storm.setTemp(0);}
+
+        return storm;
     }
 }

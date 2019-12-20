@@ -1,12 +1,22 @@
 
 public abstract class Storm
 {
-    protected static String stormName;
-    protected static String stormType;
-    protected static int windSpeed;
-    protected static int temp;
-    protected static String classification;
-    protected static String advice;
+    public static String stormName;
+    public static String stormType;
+    public static int windSpeed;
+    public static int temp;
+    public static String classification;
+    public static String advice;
+
+    public Storm()
+    {
+        stormName = getStormName();
+        stormType = getStormType();
+        windSpeed = getWindSpeed();
+        temp = getTemp();
+        classification = getClassification();
+        advice = getAdvice();
+    }
 
 
     //getters
@@ -55,4 +65,5 @@ public abstract class Storm
     {
         return getStormName() + " " + getStormType();
     }
+
 }

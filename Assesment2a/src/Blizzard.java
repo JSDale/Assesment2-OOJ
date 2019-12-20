@@ -1,5 +1,14 @@
 public class Blizzard extends Storm
 {
+    public Blizzard()
+    {
+        stormName = getStormName();
+        stormType = getStormType();
+        windSpeed = getWindSpeed();
+        temp = getTemp();
+        classification = getClassification();
+        advice = getAdvice();
+    }
 
     @Override
     public String GetClassification()

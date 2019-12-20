@@ -1,5 +1,15 @@
 public class Huricane extends Storm
 {
+    public Huricane()
+    {
+        stormName = getStormName();
+        stormType = getStormType();
+        windSpeed = getWindSpeed();
+        temp = getTemp();
+        classification = getClassification();
+        advice = getAdvice();
+    }
+
     @Override
     public String GetClassification()
     {
@@ -49,13 +59,11 @@ public class Huricane extends Storm
                 advice = "“Close storm shutters and stay away from windows";
                 return advice;
             case "Category 3":
-                advice = "";
+                advice = "Coastal regions are encouraged to evacuate";
                 return advice;
             case "Category 4":
-                advice = "";
-                return advice;
             case "Category 5":
-                advice = "";
+                advice = "Evacuate";
                 return advice;
             case "Tropical Storm":
                 advice = "";

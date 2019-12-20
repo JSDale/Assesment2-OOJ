@@ -4,7 +4,7 @@ public class StormAdviceCentre
 {
     public HashMap<String, Storm> storedStorm = new HashMap<String, Storm>();
 
-    public String GetCorrectAdvice(Storm hurricane, Storm Tornado, Storm Blizzard)
+    public String GetCorrectAdvice(Storm hurricane, Storm tornado, Storm blizzard)
     {
         String advice = "No advice to display.";
         Storm.setAdvice(advice);
@@ -12,6 +12,10 @@ public class StormAdviceCentre
         if (Storm.getStormType() == "Hurricane")
         {
             Storm.setAdvice(hurricane.GetAdvice(hurricane.GetClassification()));
+        }
+        else if(Storm.getStormType() == "Blizzard")
+        {
+            Storm.setAdvice(blizzard.GetAdvice(blizzard.GetClassification()));
         }
 
         return Storm.getAdvice();
@@ -36,10 +40,7 @@ public class StormAdviceCentre
 
     public boolean EditStorm()
     {
-        for (int i = 0; i < storedStorm.size(); i++)
-        {
 
-        }
         return false;
     }
 }

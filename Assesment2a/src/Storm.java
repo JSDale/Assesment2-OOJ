@@ -1,12 +1,12 @@
 
 public abstract class Storm
 {
-    public static String stormName;
-    public static String stormType;
-    public static int windSpeed;
-    public static int temp;
-    public static String classification;
-    public static String advice;
+    public  String stormName;
+    public  String stormType;
+    public  int windSpeed;
+    public  int temp;
+    public  String classification;
+    public  String advice;
 
     public Storm()
     {
@@ -20,40 +20,37 @@ public abstract class Storm
 
 
     //getters
-    public static int getWindSpeed() { return windSpeed; }
+    public int getWindSpeed() { return windSpeed; }
 
-    public static int getTemp() { return temp; }
+    public  int getTemp() { return temp; }
 
-    public static String getClassification()
+    public  String getClassification()
     {
         return classification;
     }
 
-    public static String getAdvice()
+    public  String getAdvice()
     {
         return advice;
     }
 
-    public static String getStormType() {return stormType; }
+    public  String getStormType() {return stormType; }
 
-    public static String getStormName() {return stormName;}
+    public  String getStormName() {return stormName;}
 
     //setters
-    public static void setWindSpeed(int windSpeed)
+    public  void setWindSpeed(int setWindSpeed) { windSpeed = setWindSpeed; }
+
+    public  void setTemp(int setTemp)
     {
-        Storm.windSpeed = windSpeed;
+        temp = setTemp;
     }
 
-    public static void setTemp(int temp)
-    {
-        Storm.temp = temp;
-    }
+    public  void setStormType(String setStormType) {stormType = setStormType; }
 
-    public static void setStormType(String stormType) {Storm.stormType = stormType; }
+    public  void setStormName(String setStormName) {stormName = setStormName; }
 
-    public static void setStormName(String stormName) {Storm.stormName = stormName; }
-
-    public static void setAdvice(String advice) {Storm.advice = advice;}
+    public  void setAdvice(String setAdvice) {advice = setAdvice;}
 
 
     //methods

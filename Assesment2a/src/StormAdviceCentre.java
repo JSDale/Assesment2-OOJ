@@ -8,31 +8,31 @@ public class StormAdviceCentre
     public String GetCorrectAdvice(Storm hurricane, Storm tornado, Storm blizzard)
     {
         String advice = "No advice to display.";
-        Storm.setAdvice(advice);
+        storm.setAdvice(advice);
 
-        if (Storm.getStormType() == "Hurricane")
+        if (storm.getStormType() == "Hurricane")
         {
-            Storm.setAdvice(hurricane.GetAdvice(hurricane.GetClassification()));
+            storm.setAdvice(hurricane.GetAdvice(hurricane.GetClassification()));
         }
-        else if(Storm.getStormType() == "Blizzard")
+        else if(storm.getStormType() == "Blizzard")
         {
-            Storm.setAdvice(blizzard.GetAdvice(blizzard.GetClassification()));
+            storm.setAdvice(blizzard.GetAdvice(blizzard.GetClassification()));
         }
-        else if(Storm.getStormType() == "Tornado")
+        else if(storm.getStormType() == "Tornado")
         {
-            Storm.setAdvice(tornado.GetAdvice(tornado.GetClassification()));
+            storm.setAdvice(tornado.GetAdvice(tornado.GetClassification()));
         }
 
-        return Storm.getAdvice();
+        return storm.getAdvice();
     }
 
     public boolean AddStorm(StormAdviceCentre stormAdviceCentre, Storm storm)
     {
         if(stormAdviceCentre.storedStorm.size() <20)
         {
-                if(storedStorm.containsKey(Storm.getStormName()) == false)
+                if(storedStorm.containsKey(storm.getStormName()) == false)
                 {
-                    stormAdviceCentre.storedStorm.put(Storm.getStormName(), storm);
+                    stormAdviceCentre.storedStorm.put(storm.getStormName(), storm);
                     System.out.println(storedStorm.get(storm.getStormName()));
                     return true;
                 }
@@ -45,7 +45,7 @@ public class StormAdviceCentre
 
     public boolean GetStormInfo()
     {
-        if (storedStorm.containsKey(Storm.getStormName()) == true)
+        if (storedStorm.containsKey(storm.getStormName()) == true)
         {
            // Storm.setStormType(storedStorm.get(Storm.getStormType().toString()));
         }

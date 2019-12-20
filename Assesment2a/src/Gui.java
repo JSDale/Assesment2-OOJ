@@ -184,7 +184,7 @@ public class Gui extends JFrame implements ActionListener
                 if(windSpeedIsInt == true)
                 {
                     stormAdviceCentre.AddStorm(stormAdviceCentre, hurricane);
-                    DisplayAdvice();
+                    DisplayAdvice(hurricane);
                 }
                 else{JOptionPane.showMessageDialog(null, "Please enter an integer into the wind speed"); }
             }
@@ -197,7 +197,7 @@ public class Gui extends JFrame implements ActionListener
                 if(windSpeedIsInt == true  && tempIsInt == true)
                 {
                     stormAdviceCentre.AddStorm(stormAdviceCentre, blizzard);
-                    DisplayAdvice();
+                    DisplayAdvice(blizzard);
                 }
                 else{JOptionPane.showMessageDialog(null, "Please enter an integer into the wind speed and or temp"); }
             }
@@ -211,7 +211,7 @@ public class Gui extends JFrame implements ActionListener
                 if(windSpeedIsInt == true)
                 {
                     stormAdviceCentre.AddStorm(stormAdviceCentre, tornado);
-                    DisplayAdvice();
+                    DisplayAdvice(tornado);
                 }
                 else{JOptionPane.showMessageDialog(null, "Please enter an integer into the wind speed"); }
             }
@@ -226,20 +226,21 @@ public class Gui extends JFrame implements ActionListener
 
         else if(ev.getSource().equals(btnShowStormInfo))
         {
+            //TODO work out if i need another IF statement
             //find correct storm by name
             //display storm info in text box
-            Storm.setStormName(txtfStormName.getText());
+            tornado.setStormName(txtfStormName.getText());
             stormAdviceCentre.GetStormInfo();
-            txtfWindSpeed.setText(Storm.getStormType());
+            txtfWindSpeed.setText(tornado.getStormType());
 
         }
         //might need an else to handle unexpected issues.
 
     }
 
-    public void DisplayAdvice()
+    public void DisplayAdvice(Storm storm)
     {
         stormAdviceCentre.GetCorrectAdvice(hurricane, tornado, blizzard);
-        lblAdvice.setText(Storm.getAdvice());
+        lblAdvice.setText(storm.getAdvice());
     }
 }

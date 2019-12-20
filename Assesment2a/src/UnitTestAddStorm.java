@@ -2,7 +2,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class UnitTestAddStorm
 {
-
+    Storm storm;
     Storm hurricane = new Huricane();
     Storm tornado = new Tornado();
     Storm blizzard = new Blizzard();
@@ -10,9 +10,9 @@ class UnitTestAddStorm
     @org.junit.jupiter.api.Test
     void addStormHurricane()
     {
-        Storm.setStormName("Burtha");
-        Storm.setStormType("Hurricane");
-        Storm.setWindSpeed(45);
+        storm.setStormName("Burtha");
+        storm.setStormType("Hurricane");
+        storm.setWindSpeed(45);
 
         StormAdviceCentre stormAdviceCentre = new StormAdviceCentre();
 
@@ -23,16 +23,16 @@ class UnitTestAddStorm
     void addStormHurricaneSameKey()
     {
 
-        Storm.setStormName("Burtha");
-        Storm.setStormType("Hurricane");
-        Storm.setWindSpeed(45);
+        storm.setStormName("Burtha");
+        storm.setStormType("Hurricane");
+        storm.setWindSpeed(45);
 
         StormAdviceCentre stormAdviceCentre = new StormAdviceCentre();
         stormAdviceCentre.AddStorm(stormAdviceCentre, hurricane);
 
-        Storm.setStormName("Burtha");
-        Storm.setStormType("Hurricane");
-        Storm.setWindSpeed(67);
+        storm.setStormName("Burtha");
+        storm.setStormType("Hurricane");
+        storm.setWindSpeed(67);
 
 
         assertEquals(false, stormAdviceCentre.AddStorm(stormAdviceCentre, hurricane));
@@ -45,9 +45,9 @@ class UnitTestAddStorm
 
         for(int i =0; i<20; i++)
         {
-            Storm.setStormName("Burtha" + i);
-            Storm.setStormType("Hurricane");
-            Storm.setWindSpeed(45);
+            storm.setStormName("Burtha" + i);
+            storm.setStormType("Hurricane");
+            storm.setWindSpeed(45);
             stormAdviceCentre.AddStorm(stormAdviceCentre, hurricane);
         }
 

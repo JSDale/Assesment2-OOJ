@@ -161,8 +161,6 @@ public class Gui extends JFrame implements ActionListener
     {
         if(ev.getSource().equals(btnCreate))
         {
-            //calls interface to get classification and display warning
-            //add storm to array
             if(combStormType.getSelectedItem().toString().equals("Hurricane"))
             {
                 createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
@@ -174,17 +172,16 @@ public class Gui extends JFrame implements ActionListener
             {
                 createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
                         combStormType.getSelectedItem().toString(), txtfTemp.getText());
-                stormAdviceCentre.AddStorm(stormAdviceCentre, tornado);
+                stormAdviceCentre.AddStorm(stormAdviceCentre, blizzard);
                 DisplayAdvice();
             }
             else if(combStormType.getSelectedItem().toString().equals("Tornado"))
             {
                 createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
                         combStormType.getSelectedItem().toString(), txtfTemp.getText());
-                stormAdviceCentre.AddStorm(stormAdviceCentre, blizzard);
+                stormAdviceCentre.AddStorm(stormAdviceCentre, tornado);
                 DisplayAdvice();
             }
-
 
         }
 

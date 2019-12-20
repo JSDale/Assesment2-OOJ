@@ -1,10 +1,5 @@
 public class Tornado extends Storm
 {
-    public Tornado()
-    {
-
-    }
-
     @Override
     public String GetClassification()
     {
@@ -42,6 +37,22 @@ public class Tornado extends Storm
     @Override
     public String GetAdvice(String classification)
     {
-        return null;
+        switch (classification)
+        {
+            case "Unclassified":
+                advice = "No need to Panic";
+            case "f0":
+            case "f1":
+                advice = "Find safe room/shelter, shield yourself from debris";
+                return advice;
+            case "f2":
+            case "f3":
+            case "f4":
+            case "f5":
+                advice = "Find underground shelter, crouch near to the floor covering your\n" +
+                        "head with your hands";
+                return advice;
+        }
+        return advice;
     }
 }

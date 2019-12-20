@@ -17,6 +17,10 @@ public class StormAdviceCentre
         {
             Storm.setAdvice(blizzard.GetAdvice(blizzard.GetClassification()));
         }
+        else if(Storm.getStormType() == "Tornado")
+        {
+            Storm.setAdvice(tornado.GetAdvice(tornado.GetClassification()));
+        }
 
         return Storm.getAdvice();
     }

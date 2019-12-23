@@ -187,7 +187,10 @@ public class Gui extends JFrame implements ActionListener
                     DisplayAdvice(hurricane);
                 }
                 else{JOptionPane.showMessageDialog(null, "Please enter an integer into the wind speed"); }
+
+                setInputEmpty();
             }
+
             else if(combStormType.getSelectedItem().toString().equals("Blizzard"))
             {
                 createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
@@ -200,6 +203,8 @@ public class Gui extends JFrame implements ActionListener
                     DisplayAdvice(blizzard);
                 }
                 else{JOptionPane.showMessageDialog(null, "Please enter an integer into the wind speed and or temp"); }
+
+                setInputEmpty();
             }
 
             //tornado
@@ -214,6 +219,8 @@ public class Gui extends JFrame implements ActionListener
                     DisplayAdvice(tornado);
                 }
                 else{JOptionPane.showMessageDialog(null, "Please enter an integer into the wind speed"); }
+
+                setInputEmpty();
             }
 
         }
@@ -223,16 +230,19 @@ public class Gui extends JFrame implements ActionListener
             //TODO work out if i need another IF statement
             //find correct storm by name
             //display storm info in text box
-            try
+            if( stormAdviceCentre.GetStormInfo(txtfStormName.getText()) == true)
             {
-                stormAdviceCentre.GetStormInfo(txtfStormName.getText());
-                txtfWindSpeed.setText(Integer.toString(StormFields.stormWindSpeed));
-                txtfTemp.setText(Integer.toString(StormFields.stormTemp));
-                combStormType.setSelectedItem(StormFields.stormType);
+                txtfWindSpeed.setText(Integer.toString(Resources.stormWindSpeed));
+                txtfTemp.setText(Integer.toString(Resources.stormTemp));
+                combStormType.setSelectedItem(Resources.stormType);
             }
-            catch(Exception cantFindStormInHashMap)
+            else
             {
-                JOptionPane.showMessageDialog(null, "Storm not found");
+                JOptionPane.showMessageDialog(null, "Storm not found, check name is correct");
+
+                txtfWindSpeed.setText(Resources.defaultValueForTextFields);
+                txtfTemp.setText(Resources.defaultValueForTextFields);
+                combStormType.setSelectedItem(Resources.defaultValueForTextFields);
             }
 
         }
@@ -250,18 +260,27 @@ public class Gui extends JFrame implements ActionListener
                     stormAdviceCentre.UpdateStormData(txtfStormName.getText(), tornado);
 
                 JOptionPane.showMessageDialog(null, "Storm updated.");
+
+                setInputEmpty();
             }
             catch (Exception stormCantUpdate)
             {
                 JOptionPane.showMessageDialog(null, "Storm couldn't update, check name is correct");
+
+                setInputEmpty();
             }
         }
 
         else if(ev.getSource().equals(btnDelete))
         {
-            //find a storm with a key
-            //delete
+            if (stormAdviceCentre.DeleteAStorm(txtfStormName.getText()) == true)
+            {
+                JOptionPane.showMessageDialog(null, "Storm deleted");
+                setInputEmpty();
+            }
+            else {JOptionPane.showMessageDialog(null, "Storm couldnt be deleted, check name is correct");}
 
+            setInputEmpty();
         }
         //might need an else to handle unexpected issues.
 
@@ -271,5 +290,12 @@ public class Gui extends JFrame implements ActionListener
     {
         stormAdviceCentre.GetCorrectAdvice(hurricane, tornado, blizzard, storm);
         lblAdvice.setText(storm.getAdvice());
+    }
+    public void setInputEmpty()
+    {
+        txtfStormName.setText(Resources.defaultValueForTextFields);
+        txtfWindSpeed.setText(Resources.defaultValueForTextFields);
+        txtfTemp.setText(Resources.defaultValueForTextFields);
+        combStormType.setSelectedItem(Resources.defaultValueForTextFields);
     }
 }

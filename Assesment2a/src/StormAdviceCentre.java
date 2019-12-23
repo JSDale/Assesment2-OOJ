@@ -47,12 +47,12 @@ public class StormAdviceCentre
         if (storedStorm.containsKey(stormName) == true)
         {
            Storm tempStorm = storedStorm.get(stormName);
-           StormFields.stormType = tempStorm.getStormType();
-           StormFields.stormWindSpeed = tempStorm.getWindSpeed();
+           Resources.stormType = tempStorm.getStormType();
+           Resources.stormWindSpeed = tempStorm.getWindSpeed();
 
            if(tempStorm.getStormType() == "Blizzard")
            {
-               StormFields.stormTemp = tempStorm.getTemp();
+               Resources.stormTemp = tempStorm.getTemp();
            }
             return true;
         }
@@ -73,12 +73,12 @@ public class StormAdviceCentre
 
     public boolean DeleteAStorm(String stormName)
     {
-        try
+        if (storedStorm.containsKey(stormName) == true)
         {
             storedStorm.remove(stormName);
             return true;
         }
-        catch(Exception couldntSDeleteStorm)
+        else
         {
             return false;
         }

@@ -4,8 +4,6 @@ class UnitTestAddStorm
 {
     Storm storm;
     Storm hurricane = new Huricane();
-    Storm tornado = new Tornado();
-    Storm blizzard = new Blizzard();
 
     @org.junit.jupiter.api.Test
     void addStormHurricane()

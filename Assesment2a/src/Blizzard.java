@@ -11,7 +11,7 @@ public class Blizzard extends Storm
     }
 
     @Override
-    public String GetClassification()
+    public String RetrieveClassification()
     {
         if(windSpeed <35)
         {

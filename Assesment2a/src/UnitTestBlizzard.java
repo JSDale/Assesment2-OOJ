@@ -14,7 +14,7 @@ class UnitTestBlizzard
         storm.setStormType("Blizzard");
         storm.setWindSpeed(34);
         storm.setTemp(-50);
-        blizzard.GetClassification();
+        blizzard.RetrieveClassification();
 
         assertEquals("snow storm", storm.getClassification());
     }
@@ -26,7 +26,7 @@ class UnitTestBlizzard
         storm.setStormType("Blizzard");
         storm.setWindSpeed(39);
         storm.setTemp(-50);
-        blizzard.GetClassification();
+        blizzard.RetrieveClassification();
 
         assertEquals("blizzard", storm.getClassification());
     }
@@ -39,7 +39,7 @@ class UnitTestBlizzard
         storm.setStormType("Blizzard");
         storm.setWindSpeed(55);
         storm.setTemp(-11);
-        blizzard.GetClassification();
+        blizzard.RetrieveClassification();
 
         assertEquals("blizzard", storm.getClassification());
     }
@@ -52,7 +52,7 @@ class UnitTestBlizzard
         storm.setStormType("Blizzard");
         storm.setWindSpeed(45);
         storm.setTemp(-12);
-        blizzard.GetClassification();
+        blizzard.RetrieveClassification();
 
         assertEquals("severe blizzard", storm.getClassification());
     }

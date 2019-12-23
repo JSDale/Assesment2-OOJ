@@ -11,15 +11,15 @@ public class StormAdviceCentre
 
         if (storm.getStormType() == "Hurricane")
         {
-            storm.setAdvice(hurricane.GetAdvice(hurricane.GetClassification()));
+            storm.setAdvice(hurricane.GetAdvice(hurricane.RetrieveClassification()));
         }
         else if(storm.getStormType() == "Blizzard")
         {
-            storm.setAdvice(blizzard.GetAdvice(blizzard.GetClassification()));
+            storm.setAdvice(blizzard.GetAdvice(blizzard.RetrieveClassification()));
         }
         else if(storm.getStormType() == "Tornado")
         {
-            storm.setAdvice(tornado.GetAdvice(tornado.GetClassification()));
+            storm.setAdvice(tornado.GetAdvice(tornado.RetrieveClassification()));
         }
 
         return storm.getAdvice();

@@ -11,7 +11,7 @@ public class Huricane extends Storm
     }
 
     @Override
-    public String GetClassification()
+    public String RetrieveClassification()
     {
         if(windSpeed <39 && windSpeed >=25)
         {

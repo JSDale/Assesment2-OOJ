@@ -54,7 +54,7 @@ public abstract class Storm
 
 
     //methods
-    public abstract String GetClassification();
+    public abstract String RetrieveClassification();
 
     public abstract String GetAdvice(String classification);
 

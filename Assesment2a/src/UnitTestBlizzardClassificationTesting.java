@@ -28,6 +28,17 @@ class UnitTestBlizzardClassificationTesting
     }
 
     @Test
+    void ClassificationBlizzardLogic()
+    {
+        blizzard.setStormName("Burtha");
+        blizzard.setStormType("Blizzard");
+        blizzard.setWindSpeed(405);
+        blizzard.setTemp(-11);
+
+        assertEquals("blizzard", blizzard.RetrieveClassification());
+    }
+
+    @Test
     void ClassificationSevereBlizzardBottomBoundary()
     {
         blizzard.setStormName("Burtha");

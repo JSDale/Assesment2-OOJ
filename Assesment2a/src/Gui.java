@@ -34,9 +34,6 @@ public class Gui extends JFrame implements ActionListener
     private CreateStorm createStorm = new CreateStorm();
     private StormAdviceCentre stormAdviceCentre = new StormAdviceCentre();
 
-    public static boolean windSpeedIsInt = false;
-    public static boolean tempIsInt = false;
-
     public Gui()
     {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -172,8 +169,8 @@ public class Gui extends JFrame implements ActionListener
     {
         if(ev.getSource().equals(btnCreate))
         {
-            tempIsInt = false;
-            windSpeedIsInt = false;
+            Resources.tempIsInt = false;
+            Resources.windSpeedIsInt = false;
 
             //hurricane
             if(combStormType.getSelectedItem().toString().equals("Hurricane"))
@@ -181,7 +178,7 @@ public class Gui extends JFrame implements ActionListener
                 createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
                         combStormType.getSelectedItem().toString(), txtfTemp.getText(), hurricane);
 
-                if(windSpeedIsInt == true)
+                if(Resources.windSpeedIsInt == true)
                 {
                     stormAdviceCentre.AddStorm(stormAdviceCentre, hurricane);
                     DisplayAdvice(hurricane);
@@ -197,7 +194,7 @@ public class Gui extends JFrame implements ActionListener
                     combStormType.getSelectedItem().toString(), txtfTemp.getText(), blizzard);
 
                 //blizzard
-                if(windSpeedIsInt == true  && tempIsInt == true)
+                if(Resources.windSpeedIsInt == true  && Resources.tempIsInt == true)
                 {
                     stormAdviceCentre.AddStorm(stormAdviceCentre, blizzard);
                     DisplayAdvice(blizzard);
@@ -213,7 +210,7 @@ public class Gui extends JFrame implements ActionListener
                createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
                         combStormType.getSelectedItem().toString(), txtfTemp.getText(), tornado);
 
-               if(windSpeedIsInt == true)
+               if(Resources.windSpeedIsInt == true)
                {
                     stormAdviceCentre.AddStorm(stormAdviceCentre, tornado);
                     DisplayAdvice(tornado);
@@ -238,9 +235,7 @@ public class Gui extends JFrame implements ActionListener
             {
                 JOptionPane.showMessageDialog(null, "Storm not found, check name is correct");
 
-                txtfWindSpeed.setText(Resources.defaultValueForTextFields);
-                txtfTemp.setText(Resources.defaultValueForTextFields);
-                combStormType.setSelectedItem(Resources.defaultValueForTextFields);
+                setInputEmpty();
             }
 
         }
@@ -264,8 +259,6 @@ public class Gui extends JFrame implements ActionListener
             catch (Exception stormCantUpdate)
             {
                 JOptionPane.showMessageDialog(null, "Storm couldn't update, check name is correct");
-
-                setInputEmpty();
             }
         }
 
@@ -278,7 +271,9 @@ public class Gui extends JFrame implements ActionListener
             }
             else {JOptionPane.showMessageDialog(null, "Storm couldnt be deleted, check name is correct");}
 
-            setInputEmpty();
+            txtfWindSpeed.setText(Resources.defaultValueForTextFields);
+            txtfTemp.setText(Resources.defaultValueForTextFields);
+            combStormType.setSelectedItem(Resources.defaultValueForTextFields);
         }
         //might need an else to handle unexpected issues.
 

@@ -13,9 +13,9 @@ public class CreateStorm
                 convertedWindSpeed = Integer.parseInt(windSpeed);
                 storm.setWindSpeed(convertedWindSpeed);
 
-                if(convertedWindSpeed < 0) { Gui.windSpeedIsInt = false; }
+                if(convertedWindSpeed < 0) { Resources.windSpeedIsInt = false; }
 
-                else {Gui.windSpeedIsInt = true;}
+                else {Resources.windSpeedIsInt = true;}
             }
             catch(Exception wrongInput) { }
 
@@ -34,7 +34,7 @@ public class CreateStorm
                 {
                     convertedTemp = Integer.parseInt(stormTemp);
                     storm.setTemp(convertedTemp);
-                    Gui.tempIsInt = true;
+                    Resources.tempIsInt = true;
                 }
                 catch(Exception wrongInput) { }
         }

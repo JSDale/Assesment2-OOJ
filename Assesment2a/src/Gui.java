@@ -6,9 +6,9 @@ import java.awt.event.ActionListener;
 
 public class Gui extends JFrame implements ActionListener
 {
-    Storm hurricane = new Huricane();
-    Storm tornado = new Tornado();
-    Storm blizzard = new Blizzard();
+    public Storm hurricane = new Huricane();
+    public Storm tornado = new Tornado();
+    public Storm blizzard = new Blizzard();
     public Storm storm;
 
 
@@ -230,9 +230,9 @@ public class Gui extends JFrame implements ActionListener
             //TODO work out if i need another IF statement
             //find correct storm by name
             //display storm info in text box
-            tornado.setStormName(txtfStormName.getText());
-            stormAdviceCentre.GetStormInfo();
-            txtfWindSpeed.setText(tornado.getStormType());
+            stormAdviceCentre.GetStormInfo(storm, txtfStormName.getText());
+            txtfWindSpeed.setText(storm.getStormType());
+
 
         }
         //might need an else to handle unexpected issues.

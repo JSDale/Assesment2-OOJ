@@ -42,13 +42,20 @@ public class StormAdviceCentre
         return false;
     }
 
-    public boolean GetStormInfo()
+    public boolean GetStormInfo(Storm storm, String stormName)
     {
-       // if (storedStorm.containsKey(storm.getStormName()) == true)
-       // {
-           //Storm tempStorm = storedStorm.get(storm.getStormType());
-           //System.out.println(tempStorm.getStormType());
-      // }
+        if (storedStorm.containsKey(stormName) == true)
+        {
+           Storm tempStorm = storedStorm.get(stormName);
+           StormFields.stormType = tempStorm.getStormType();
+           StormFields.stormWindSpeed = tempStorm.getWindSpeed();
+
+           if(storm.getStormType() == "Blizzard")
+           {
+               StormFields.stormTemp = tempStorm.getTemp();
+           }
+            return true;
+        }
 
         return false;
     }

@@ -60,4 +60,29 @@ public class StormAdviceCentre
         return false;
     }
 
+    public boolean UpdateStormData(String stormName, Storm storm)
+    {
+        if (storedStorm.containsKey(stormName) == true)
+        {
+            storedStorm.put(stormName, storm);
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean DeleteAStorm(String stormName)
+    {
+        try
+        {
+            storedStorm.remove(stormName);
+            return true;
+        }
+        catch(Exception couldntSDeleteStorm)
+        {
+            return false;
+        }
+
+    }
+
 }

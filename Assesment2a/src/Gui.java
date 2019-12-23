@@ -218,12 +218,6 @@ public class Gui extends JFrame implements ActionListener
 
         }
 
-        else if(ev.getSource().equals(btnDelete))
-        {
-            //find a storm with a key
-            //delete
-        }
-
         else if(ev.getSource().equals(btnShowStormInfo))
         {
             //TODO work out if i need another IF statement
@@ -240,6 +234,33 @@ public class Gui extends JFrame implements ActionListener
             {
                 JOptionPane.showMessageDialog(null, "Storm not found");
             }
+
+        }
+        else if(ev.getSource().equals((btnUpdateStorm)))
+        {
+            createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
+                    combStormType.getSelectedItem().toString(), txtfTemp.getText(), tornado);
+            try
+            {
+                if (txtfStormName.getText() == "Hurricane")
+                    stormAdviceCentre.UpdateStormData(txtfStormName.getText(), hurricane);
+                else if (txtfStormName.getText() == "Blizzard")
+                    stormAdviceCentre.UpdateStormData(txtfStormName.getText(), blizzard);
+                else if (txtfStormName.getText() == "Tornado")
+                    stormAdviceCentre.UpdateStormData(txtfStormName.getText(), tornado);
+
+                JOptionPane.showMessageDialog(null, "Storm updated.");
+            }
+            catch (Exception stormCantUpdate)
+            {
+                JOptionPane.showMessageDialog(null, "Storm couldn't update, check name is correct");
+            }
+        }
+
+        else if(ev.getSource().equals(btnDelete))
+        {
+            //find a storm with a key
+            //delete
 
         }
         //might need an else to handle unexpected issues.

@@ -185,10 +185,10 @@ public class Gui extends JFrame implements ActionListener
                 {
                     stormAdviceCentre.AddStorm(stormAdviceCentre, hurricane);
                     DisplayAdvice(hurricane);
-                }
-                else{JOptionPane.showMessageDialog(null, "Please enter an integer into the wind speed"); }
 
-                setInputEmpty();
+                    setInputEmpty();
+                }
+                else{JOptionPane.showMessageDialog(null, "Please enter a positive integer into the wind speed"); }
             }
 
             else if(combStormType.getSelectedItem().toString().equals("Blizzard"))
@@ -201,10 +201,10 @@ public class Gui extends JFrame implements ActionListener
                 {
                     stormAdviceCentre.AddStorm(stormAdviceCentre, blizzard);
                     DisplayAdvice(blizzard);
-                }
-                else{JOptionPane.showMessageDialog(null, "Please enter an integer into the wind speed and or temp"); }
 
-                setInputEmpty();
+                    setInputEmpty();
+                }
+                else{JOptionPane.showMessageDialog(null, "Please enter a positive integer into the wind speed and or temp"); }
             }
 
             //tornado
@@ -213,14 +213,14 @@ public class Gui extends JFrame implements ActionListener
                createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
                         combStormType.getSelectedItem().toString(), txtfTemp.getText(), tornado);
 
-                if(windSpeedIsInt == true)
-                {
+               if(windSpeedIsInt == true)
+               {
                     stormAdviceCentre.AddStorm(stormAdviceCentre, tornado);
                     DisplayAdvice(tornado);
-                }
-                else{JOptionPane.showMessageDialog(null, "Please enter an integer into the wind speed"); }
 
-                setInputEmpty();
+                    setInputEmpty();
+               }
+               else{JOptionPane.showMessageDialog(null, "Please enter a positive integer into the wind speed."); }
             }
 
         }
@@ -228,8 +228,6 @@ public class Gui extends JFrame implements ActionListener
         else if(ev.getSource().equals(btnShowStormInfo))
         {
             //TODO work out if i need another IF statement
-            //find correct storm by name
-            //display storm info in text box
             if( stormAdviceCentre.GetStormInfo(txtfStormName.getText()) == true)
             {
                 txtfWindSpeed.setText(Integer.toString(Resources.stormWindSpeed));

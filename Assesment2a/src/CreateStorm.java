@@ -12,7 +12,10 @@ public class CreateStorm
             {
                 convertedWindSpeed = Integer.parseInt(windSpeed);
                 storm.setWindSpeed(convertedWindSpeed);
-                Gui.windSpeedIsInt = true;
+
+                if(convertedWindSpeed < 0) { Gui.windSpeedIsInt = false; }
+
+                else {Gui.windSpeedIsInt = true;}
             }
             catch(Exception wrongInput) { }
 

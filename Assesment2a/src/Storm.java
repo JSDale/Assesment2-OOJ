@@ -58,9 +58,4 @@ public abstract class Storm
 
     public abstract String GetAdvice(String classification);
 
-    public String ToString()
-    {
-        return getStormName() + " " + getStormType();
-    }
-
 }

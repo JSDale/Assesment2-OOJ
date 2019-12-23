@@ -9,7 +9,6 @@ public class Gui extends JFrame implements ActionListener
     public Storm hurricane = new Huricane();
     public Storm tornado = new Tornado();
     public Storm blizzard = new Blizzard();
-    public Storm storm;
 
 
     private JLabel lblStormType;
@@ -230,9 +229,17 @@ public class Gui extends JFrame implements ActionListener
             //TODO work out if i need another IF statement
             //find correct storm by name
             //display storm info in text box
-            stormAdviceCentre.GetStormInfo(storm, txtfStormName.getText());
-            txtfWindSpeed.setText(storm.getStormType());
-
+            try
+            {
+                stormAdviceCentre.GetStormInfo(txtfStormName.getText());
+                txtfWindSpeed.setText(Integer.toString(StormFields.stormWindSpeed));
+                txtfTemp.setText(Integer.toString(StormFields.stormTemp));
+                combStormType.setSelectedItem(StormFields.stormType);
+            }
+            catch(Exception cantFindStormInHashMap)
+            {
+                JOptionPane.showMessageDialog(null, "Storm not found");
+            }
 
         }
         //might need an else to handle unexpected issues.

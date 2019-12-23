@@ -42,7 +42,7 @@ public class StormAdviceCentre
         return false;
     }
 
-    public boolean GetStormInfo(Storm storm, String stormName)
+    public boolean GetStormInfo(String stormName)
     {
         if (storedStorm.containsKey(stormName) == true)
         {
@@ -50,7 +50,7 @@ public class StormAdviceCentre
            StormFields.stormType = tempStorm.getStormType();
            StormFields.stormWindSpeed = tempStorm.getWindSpeed();
 
-           if(storm.getStormType() == "Blizzard")
+           if(tempStorm.getStormType() == "Blizzard")
            {
                StormFields.stormTemp = tempStorm.getTemp();
            }

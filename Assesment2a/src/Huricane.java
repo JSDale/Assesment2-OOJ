@@ -17,10 +17,10 @@ public class Huricane extends Storm
         {
             classification = "Tropical Depression";
         }
-        else if (windSpeed <= 73 && windSpeed >= 39)
-    {
+        else if (windSpeed >= 39 && windSpeed <= 73)
+        {
         classification = "Tropical Storm";
-    }
+        }
         else if (windSpeed >=74 && windSpeed <=95)
         {
             classification = "Category 1";
@@ -66,7 +66,7 @@ public class Huricane extends Storm
                 advice = "Evacuate";
                 return advice;
             case "Tropical Storm":
-                advice = "";
+                advice = "Prepare for a possible Hurricane";
                 return advice;
 
         }

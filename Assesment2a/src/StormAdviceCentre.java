@@ -2,10 +2,9 @@ import java.util.HashMap;
 
 public class StormAdviceCentre
 {
-    public Storm storm;
     public HashMap<String, Storm> storedStorm = new HashMap<String, Storm>();
 
-    public String GetCorrectAdvice(Storm hurricane, Storm tornado, Storm blizzard)
+    public String GetCorrectAdvice(Storm hurricane, Storm tornado, Storm blizzard, Storm storm)
     {
         String advice = "No advice to display.";
         storm.setAdvice(advice);
@@ -45,11 +44,11 @@ public class StormAdviceCentre
 
     public boolean GetStormInfo()
     {
-        if (storedStorm.containsKey(storm.getStormName()) == true)
-        {
-           // Storm.setStormType(storedStorm.get(Storm.getStormType().toString()));
-        }
-
+       // if (storedStorm.containsKey(storm.getStormName()) == true)
+       // {
+           //Storm tempStorm = storedStorm.get(storm.getStormType());
+           //System.out.println(tempStorm.getStormType());
+      // }
 
         return false;
     }

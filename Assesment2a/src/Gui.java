@@ -9,6 +9,7 @@ public class Gui extends JFrame implements ActionListener
     Storm hurricane = new Huricane();
     Storm tornado = new Tornado();
     Storm blizzard = new Blizzard();
+    public Storm storm;
 
 
     private JLabel lblStormType;
@@ -240,7 +241,7 @@ public class Gui extends JFrame implements ActionListener
 
     public void DisplayAdvice(Storm storm)
     {
-        stormAdviceCentre.GetCorrectAdvice(hurricane, tornado, blizzard);
+        stormAdviceCentre.GetCorrectAdvice(hurricane, tornado, blizzard, storm);
         lblAdvice.setText(storm.getAdvice());
     }
 }

@@ -333,19 +333,4 @@ public class Gui extends JFrame implements ActionListener
         stormHolder.removeElement(stormName);
         lstStorm.setModel(stormHolder);
     }
-    /*
-    BOB
-    BOBBOBBOBBOB
-    BOB
-    BOB
-    BOB
-    BOB
-    BOB
-    BOB
-    BOB
-    BOB
-    BOB
-    BOB
-
-     */
 }

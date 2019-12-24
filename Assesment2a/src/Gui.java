@@ -3,6 +3,8 @@ import java.awt.*;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Gui extends JFrame implements ActionListener
 {
@@ -30,12 +32,17 @@ public class Gui extends JFrame implements ActionListener
     private JButton btnShowStormInfo;
     private JButton btnUpdateStorm;
 
+    private JList<String> lstStorm;
+    private JScrollPane scrlList;
+
     private String[] stormTypes = {"", "Tornado", "Blizzard", "Hurricane"};
     private CreateStorm createStorm = new CreateStorm();
     private StormAdviceCentre stormAdviceCentre = new StormAdviceCentre();
+    private DefaultListModel stormHolder = new DefaultListModel();
 
     public Gui()
     {
+        super("Storm Database");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
@@ -68,6 +75,11 @@ public class Gui extends JFrame implements ActionListener
         btnShowStormInfo.addActionListener(this);
         btnUpdateStorm = new JButton("Update Storm Info");
         btnUpdateStorm.addActionListener(this);
+
+        lstStorm = new JList(stormHolder.toArray());
+        scrlList = new JScrollPane(lstStorm, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        this.add(scrlList);
+        lstStorm.setVisibleRowCount(5);
 
     }
 
@@ -162,6 +174,11 @@ public class Gui extends JFrame implements ActionListener
         constraints.gridheight = 1;
         constraints.gridwidth = 1;
         this.add(btnDelete, constraints);
+
+        constraints.gridy = 10;
+        constraints.gridx = 400;
+        this.add(scrlList, constraints);
+
     }
 
     @Override
@@ -183,6 +200,8 @@ public class Gui extends JFrame implements ActionListener
                     stormAdviceCentre.AddStorm(stormAdviceCentre, hurricane);
                     DisplayAdvice(hurricane);
 
+                    AddStormToList(txtfStormName.getText());
+
                     setInputEmpty();
                 }
                 else{JOptionPane.showMessageDialog(null, "Please enter a positive integer into the wind speed"); }
@@ -199,6 +218,8 @@ public class Gui extends JFrame implements ActionListener
                     stormAdviceCentre.AddStorm(stormAdviceCentre, blizzard);
                     DisplayAdvice(blizzard);
 
+                    AddStormToList(txtfStormName.getText());
+
                     setInputEmpty();
                 }
                 else{JOptionPane.showMessageDialog(null, "Please enter a positive integer into the wind speed and or temp"); }
@@ -214,6 +235,8 @@ public class Gui extends JFrame implements ActionListener
                {
                     stormAdviceCentre.AddStorm(stormAdviceCentre, tornado);
                     DisplayAdvice(tornado);
+
+                   AddStormToList(txtfStormName.getText());
 
                     setInputEmpty();
                }
@@ -279,16 +302,23 @@ public class Gui extends JFrame implements ActionListener
 
     }
 
-    public void DisplayAdvice(Storm storm)
+    private void DisplayAdvice(Storm storm)
     {
         stormAdviceCentre.GetCorrectAdvice(hurricane, tornado, blizzard, storm);
         lblAdvice.setText(storm.getAdvice());
     }
-    public void setInputEmpty()
+
+    private void setInputEmpty()
     {
         txtfStormName.setText(Resources.defaultValueForTextFields);
         txtfWindSpeed.setText(Resources.defaultValueForTextFields);
         txtfTemp.setText(Resources.defaultValueForTextFields);
         combStormType.setSelectedItem(Resources.defaultValueForTextFields);
+    }
+
+    private void AddStormToList(String stormName)
+    {
+        stormHolder.addElement(stormName);
+        lstStorm.setModel(stormHolder);
     }
 }

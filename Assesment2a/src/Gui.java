@@ -296,6 +296,7 @@ public class Gui extends JFrame implements ActionListener
             if (stormAdviceCentre.DeleteAStorm(txtfStormName.getText()) == true)
             {
                 JOptionPane.showMessageDialog(null, "Storm deleted");
+                RemoveStormFromList(txtfStormName.getText());
                 setInputEmpty();
             }
             else {JOptionPane.showMessageDialog(null, "Storm couldnt be deleted, check name is correct");}
@@ -325,6 +326,11 @@ public class Gui extends JFrame implements ActionListener
     private void AddStormToList(String stormName)
     {
         stormHolder.addElement(stormName);
+        lstStorm.setModel(stormHolder);
+    }
+    private void RemoveStormFromList(String stormName)
+    {
+        stormHolder.removeElement(stormName);
         lstStorm.setModel(stormHolder);
     }
 }

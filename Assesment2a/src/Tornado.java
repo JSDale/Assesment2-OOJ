@@ -51,6 +51,7 @@ public class Tornado extends Storm
         {
             case "Unclassified":
                 advice = "No need to Panic";
+                return advice;
             case "f0":
             case "f1":
                 advice = "Find safe room/shelter, shield yourself from debris";

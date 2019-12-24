@@ -27,8 +27,6 @@ public class StormAdviceCentre
 
     public boolean AddStorm(StormAdviceCentre stormAdviceCentre, Storm storm)
     {
-        if(stormAdviceCentre.storedStorm.size() <20)
-        {
                 if(storedStorm.containsKey(storm.getStormName()) == false)
                 {
                     stormAdviceCentre.storedStorm.put(storm.getStormName(), storm);
@@ -38,8 +36,6 @@ public class StormAdviceCentre
 
                 System.out.println("Storm Already Exists");
                 return false;
-        }
-        return false;
     }
 
     public boolean GetStormInfo(String stormName)

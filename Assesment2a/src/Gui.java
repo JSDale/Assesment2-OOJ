@@ -3,8 +3,6 @@ import java.awt.*;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Gui extends JFrame implements ActionListener
 {
@@ -107,7 +105,7 @@ public class Gui extends JFrame implements ActionListener
         constraints.gridx = 0;
         this.add(lblTemp, constraints);
 
-        constraints.gridy =40;
+        constraints.gridy = 40;
         constraints.gridx = 0;
         this.add(lblTempCont, constraints);
 
@@ -176,7 +174,10 @@ public class Gui extends JFrame implements ActionListener
         this.add(btnDelete, constraints);
 
         constraints.gridy = 10;
-        constraints.gridx = 400;
+        constraints.gridx = 90;
+        constraints.gridwidth = 6;
+        constraints.gridheight = 6;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
         this.add(scrlList, constraints);
 
     }
@@ -241,6 +242,11 @@ public class Gui extends JFrame implements ActionListener
                     setInputEmpty();
                }
                else{JOptionPane.showMessageDialog(null, "Please enter a positive integer into the wind speed."); }
+            }
+            //no Storm type entered
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Please enter a storm type");
             }
 
         }

@@ -20,13 +20,8 @@ public class CreateStorm
             catch(Exception wrongInput) { }
 
 
-        storm.setStormName(stormName);
-
-            if (stormType == "")
-            {
-                JOptionPane.showMessageDialog(null, "Please enter a storm type");
-            }
-            else { storm.setStormType(stormType); }
+            storm.setStormName(stormName);
+            storm.setStormType(stormType);
 
         if (stormType.equals("Blizzard"))
         {

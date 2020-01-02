@@ -174,9 +174,9 @@ public class Gui extends JFrame implements ActionListener
         this.add(btnDelete, constraints);
 
         constraints.gridy = 10;
-        constraints.gridx = 90;
-        constraints.gridwidth = 6;
-        constraints.gridheight = 6;
+        constraints.gridx = 9;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         this.add(scrlList, constraints);
 
@@ -253,7 +253,6 @@ public class Gui extends JFrame implements ActionListener
 
         else if(ev.getSource().equals(btnShowStormInfo))
         {
-            //TODO work out if i need another IF statement
             if( stormAdviceCentre.GetStormInfo(txtfStormName.getText()) == true)
             {
                 txtfWindSpeed.setText(Integer.toString(Resources.stormWindSpeed));

@@ -1,3 +1,4 @@
-# Assesment2-OOJ
+# Assessment2-OOJ
 
-GUI Assesment
+GUI Assessment
+This is my A grade attempt at the Object Orientated Programming Assignment 2. 

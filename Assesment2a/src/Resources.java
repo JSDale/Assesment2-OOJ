@@ -8,4 +8,5 @@ public class Resources
     public static int stormWindSpeed = 0;
     public static int stormTemp = 0;
     public static String defaultValueForTextFields = "";
+    public static boolean stormUpdated = false;
 }

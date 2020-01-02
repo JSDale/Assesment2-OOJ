@@ -289,23 +289,30 @@ public class Gui extends JFrame implements ActionListener
         {
             createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
                     combStormType.getSelectedItem().toString(), txtfTemp.getText(), tornado);
-            try
+
+            Resources.stormUpdated = false;
+
+            if (txtfStormName.getText().equals("Hurricane"))
+                stormAdviceCentre.UpdateStormData(txtfStormName.getText(), hurricane);
+            else if (txtfStormName.getText().equals("Blizzard"))
+                stormAdviceCentre.UpdateStormData(txtfStormName.getText(), blizzard);
+            else if (txtfStormName.getText().equals("Tornado"))
+                stormAdviceCentre.UpdateStormData(txtfStormName.getText(), tornado);
+
+            if(Resources.stormUpdated)
             {
-                if (txtfStormName.getText().equals("Hurricane"))
-                    stormAdviceCentre.UpdateStormData(txtfStormName.getText(), hurricane);
-                else if (txtfStormName.getText().equals("Blizzard"))
-                    stormAdviceCentre.UpdateStormData(txtfStormName.getText(), blizzard);
-                else if (txtfStormName.getText().equals("Tornado"))
-                    stormAdviceCentre.UpdateStormData(txtfStormName.getText(), tornado);
-
                 JOptionPane.showMessageDialog(null, "Storm updated.");
-
                 setInputEmpty();
             }
+            else { JOptionPane.showMessageDialog(null, "Storm couldn't update, check name is correct"); }
+
+            /*
             catch (Exception stormCantUpdate)
             {
                 JOptionPane.showMessageDialog(null, "Storm couldn't update, check name is correct");
             }
+
+             */
         }
 
         else if(ev.getSource().equals(btnDelete))

@@ -289,26 +289,29 @@ public class Gui extends JFrame implements ActionListener
         {
             Resources.stormUpdated = false;
 
-            if (combStormType.getSelectedItem().toString().equals("Hurricane"))
+            switch(combStormType.getSelectedItem().toString())
             {
-                createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
-                        combStormType.getSelectedItem().toString(), txtfTemp.getText(), hurricane);
+                case "Hurricane":
+                    createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
+                            combStormType.getSelectedItem().toString(), txtfTemp.getText(), hurricane);
 
-                stormAdviceCentre.UpdateStormData(txtfStormName.getText(), hurricane);
-            }
-            else if (combStormType.getSelectedItem().toString().equals("Blizzard"))
-            {
-                createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
-                        combStormType.getSelectedItem().toString(), txtfTemp.getText(), blizzard);
+                    stormAdviceCentre.UpdateStormData(txtfStormName.getText(), hurricane);
+                    break;
+                case "Blizzard":
+                    createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
+                            combStormType.getSelectedItem().toString(), txtfTemp.getText(), blizzard);
 
-                stormAdviceCentre.UpdateStormData(txtfStormName.getText(), blizzard);
-            }
-            else if (combStormType.getSelectedItem().toString().equals("Tornado"))
-            {
-                createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
-                        combStormType.getSelectedItem().toString(), txtfTemp.getText(), tornado);
+                    stormAdviceCentre.UpdateStormData(txtfStormName.getText(), blizzard);
+                    break;
+                case "Tornado":
+                    createStorm.PopulateStormVariables(txtfWindSpeed.getText(), txtfStormName.getText(),
+                            combStormType.getSelectedItem().toString(), txtfTemp.getText(), tornado);
 
-                stormAdviceCentre.UpdateStormData(txtfStormName.getText(), tornado);
+                    stormAdviceCentre.UpdateStormData(txtfStormName.getText(), tornado);
+                    break;
+                case "":
+                    JOptionPane.showMessageDialog(null, "Please enter the storm type. \nIf unknown refer to show storm info button");
+                    break;
             }
 
             if(Resources.stormUpdated == true)

@@ -48,8 +48,8 @@ public class StormAdviceCentre
     {
         if (storedStorm.containsKey(stormName))
         {
-            storedStorm.put(stormName, storm);
             Resources.stormUpdated = true;
+            storedStorm.put(stormName, storm);
         }
     }
 

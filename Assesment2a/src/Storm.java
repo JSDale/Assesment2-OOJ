@@ -52,6 +52,8 @@ public abstract class Storm
 
     public  void setAdvice(String setAdvice) {advice = setAdvice;}
 
+    public void setClassification(String setClassification) {classification = setClassification;}
+
 
     //methods
     public abstract String RetrieveClassification();

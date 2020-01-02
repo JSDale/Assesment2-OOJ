@@ -310,7 +310,7 @@ public class Gui extends JFrame implements ActionListener
 
     private void DisplayAdvice(Storm storm)
     {
-        stormAdviceCentre.GetCorrectAdvice(hurricane, tornado, blizzard, storm);
+        stormAdviceCentre.GetCorrectAdvice( storm);
         lblAdvice.setText(storm.getAdvice());
     }
 

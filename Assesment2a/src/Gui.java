@@ -319,7 +319,7 @@ public class Gui extends JFrame implements ActionListener
                 JOptionPane.showMessageDialog(null, "Storm updated.");
                 setInputEmpty();
             }
-            else { JOptionPane.showMessageDialog(null, "Storm couldn't update, check name is correct"); }
+            else { JOptionPane.showMessageDialog(null, "Storm couldn't update, check name/storm type is correct"); }
         }
 
         else if(ev.getSource().equals(btnDelete))

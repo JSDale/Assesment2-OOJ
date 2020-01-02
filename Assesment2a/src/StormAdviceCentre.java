@@ -41,7 +41,6 @@ public class StormAdviceCentre
            }
             return true;
         }
-
         return false;
     }
 

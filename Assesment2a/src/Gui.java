@@ -198,12 +198,18 @@ public class Gui extends JFrame implements ActionListener
 
                 if(Resources.windSpeedIsInt == true)
                 {
-                    stormAdviceCentre.AddStorm(stormAdviceCentre, hurricane);
-                    DisplayAdvice(hurricane);
+                    if(stormAdviceCentre.AddStorm(stormAdviceCentre, hurricane) == true)
+                    {
+                        DisplayAdvice(hurricane);
 
-                    AddStormToList(txtfStormName.getText());
+                        AddStormToList(txtfStormName.getText());
 
-                    setInputEmpty();
+                        setInputEmpty();
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "Storm Already Exists.");
+                    }
                 }
                 else{JOptionPane.showMessageDialog(null, "Please enter a positive integer into the wind speed"); }
             }
@@ -216,12 +222,18 @@ public class Gui extends JFrame implements ActionListener
                 //blizzard
                 if(Resources.windSpeedIsInt == true  && Resources.tempIsInt == true)
                 {
-                    stormAdviceCentre.AddStorm(stormAdviceCentre, blizzard);
-                    DisplayAdvice(blizzard);
+                    if(stormAdviceCentre.AddStorm(stormAdviceCentre, blizzard) == true)
+                    {
+                        DisplayAdvice(blizzard);
 
-                    AddStormToList(txtfStormName.getText());
+                        AddStormToList(txtfStormName.getText());
 
-                    setInputEmpty();
+                        setInputEmpty();
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "Storm Already Exists.");
+                    }
                 }
                 else{JOptionPane.showMessageDialog(null, "Please enter a positive integer into the wind speed and or temp"); }
             }
@@ -234,12 +246,18 @@ public class Gui extends JFrame implements ActionListener
 
                if(Resources.windSpeedIsInt == true)
                {
-                    stormAdviceCentre.AddStorm(stormAdviceCentre, tornado);
-                    DisplayAdvice(tornado);
+                    if(stormAdviceCentre.AddStorm(stormAdviceCentre, tornado) == true)
+                    {
+                        DisplayAdvice(tornado);
 
-                   AddStormToList(txtfStormName.getText());
+                        AddStormToList(txtfStormName.getText());
 
-                    setInputEmpty();
+                        setInputEmpty();
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "Storm Already Exists.");
+                    }
                }
                else{JOptionPane.showMessageDialog(null, "Please enter a positive integer into the wind speed."); }
             }

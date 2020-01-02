@@ -298,7 +298,7 @@ public class Gui extends JFrame implements ActionListener
                 RemoveStormFromList(txtfStormName.getText());
                 setInputEmpty();
             }
-            else {JOptionPane.showMessageDialog(null, "Storm couldnt be deleted, check name is correct");}
+            else {JOptionPane.showMessageDialog(null, "Storm couldn't be deleted, check name is correct");}
 
             txtfWindSpeed.setText(Resources.defaultValueForTextFields);
             txtfTemp.setText(Resources.defaultValueForTextFields);

@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class UnitTestHurricaneAdviceFromClass
@@ -7,13 +6,13 @@ class UnitTestHurricaneAdviceFromClass
     Storm hurricane = new Huricane();
 
     @Test
-    void AdviceTropDep()
+    void AdviceTropicalDep()
     {
         assertEquals("Prepare for a possible Hurricane", hurricane.GetAdvice("Tropical Depression"));
     }
 
     @Test
-    void AdviceTropStorm()
+    void AdviceTropicalStorm()
     {
         assertEquals("Close storm shutters and stay away from windows", hurricane.GetAdvice("Tropical Storm"));
     }

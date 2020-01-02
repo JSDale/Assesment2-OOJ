@@ -13,7 +13,11 @@ public class Blizzard extends Storm
     @Override
     public String RetrieveClassification()
     {
-        if(windSpeed <35)
+        if (windSpeed <= 15)
+        {
+            classification = "unclassified";
+        }
+        else if(windSpeed <35 && windSpeed >15)
         {
             classification = "snow storm";
         }
@@ -37,6 +41,9 @@ public class Blizzard extends Storm
     {
         switch (classification)
         {
+            case "unclassified":
+                advice = "Try to stay off roads and prepare for a storm";
+                return advice;
             case "snow storm":
                 advice = "Take care and avoid travel if possible";
                 return advice;

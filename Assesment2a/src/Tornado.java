@@ -50,7 +50,7 @@ public class Tornado extends Storm
         switch (classification)
         {
             case "Unclassified":
-                advice = "No need to Panic";
+                advice = "There is no need to panic";
                 return advice;
             case "f0":
             case "f1":

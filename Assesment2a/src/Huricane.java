@@ -51,12 +51,12 @@ public class Huricane extends Storm
     @Override
     public String GetAdvice(String classification)
     {
-        //TODO set up proper advice
         switch(classification)
         {
+            case "Tropical Storm":
             case "Category 1":
             case "Category 2":
-                advice = "“Close storm shutters and stay away from windows";
+                advice = "Close storm shutters and stay away from windows";
                 return advice;
             case "Category 3":
                 advice = "Coastal regions are encouraged to evacuate";
@@ -65,11 +65,10 @@ public class Huricane extends Storm
             case "Category 5":
                 advice = "Evacuate";
                 return advice;
-            case "Tropical Storm":
+            case "Tropical Depression":
                 advice = "Prepare for a possible Hurricane";
                 return advice;
-
         }
-        return "No advice to give.";
+        return advice;
     }
 }

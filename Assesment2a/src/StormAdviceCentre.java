@@ -19,11 +19,8 @@ public class StormAdviceCentre
                 if(storedStorm.containsKey(storm.getStormName()) == false)
                 {
                     storedStorm.put(storm.getStormName(), storm);
-                    System.out.println(storedStorm.get(storm.getStormName()));
                     return true;
                 }
-
-                System.out.println("Storm Already Exists");
                 return false;
     }
 
@@ -32,25 +29,27 @@ public class StormAdviceCentre
         if (storedStorm.containsKey(stormName) == true)
         {
            Storm tempStorm = storedStorm.get(stormName);
-           Resources.stormType = tempStorm.getStormType();
-           Resources.stormWindSpeed = tempStorm.getWindSpeed();
+           Resources.tempStormType = tempStorm.getStormType();
+           Resources.tempStormWindSpeed = tempStorm.getWindSpeed();
 
            if(tempStorm.getStormType() == "Blizzard")
            {
-               Resources.stormTemp = tempStorm.getTemp();
+               Resources.tempStormTemp = tempStorm.getTemp();
            }
             return true;
         }
         return false;
     }
 
-    public void UpdateStormData(String stormName, Storm storm)
+    public boolean UpdateStormData(String stormName, Storm storm)
     {
         if (storedStorm.containsKey(stormName))
         {
             Resources.stormUpdated = true;
             storedStorm.put(stormName, storm);
+            return true;
         }
+        else {return false; }
     }
 
     public boolean DeleteAStorm(String stormName)

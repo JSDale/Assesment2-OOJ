@@ -273,9 +273,9 @@ public class Gui extends JFrame implements ActionListener
         {
             if(stormAdviceCentre.GetStormInfo(txtfStormName.getText()))
             {
-                txtfWindSpeed.setText(Integer.toString(Resources.stormWindSpeed));
-                txtfTemp.setText(Integer.toString(Resources.stormTemp));
-                combStormType.setSelectedItem(Resources.stormType);
+                txtfWindSpeed.setText(Integer.toString(Resources.tempStormWindSpeed));
+                txtfTemp.setText(Integer.toString(Resources.tempStormTemp));
+                combStormType.setSelectedItem(Resources.tempStormType);
             }
             else
             {

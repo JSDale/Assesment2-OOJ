@@ -1,4 +1,3 @@
-import javax.swing.*;
 
 public class CreateStorm
 {
@@ -6,7 +5,7 @@ public class CreateStorm
     private int convertedWindSpeed =0;
 
 
-    public Storm PopulateStormVariables(String windSpeed, String stormName, String stormType, String stormTemp, Storm storm)
+    public void PopulateStormVariables(String windSpeed, String stormName, String stormType, String stormTemp, Storm storm)
     {
             try
             {
@@ -18,7 +17,6 @@ public class CreateStorm
                 else {Resources.windSpeedIsInt = true;}
             }
             catch(Exception wrongInput) { }
-
 
             storm.setStormName(stormName);
             storm.setStormType(stormType);
@@ -35,6 +33,5 @@ public class CreateStorm
         }
         else{storm.setTemp(0);}
 
-        return storm;
     }
 }

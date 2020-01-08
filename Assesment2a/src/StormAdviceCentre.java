@@ -14,11 +14,11 @@ public class StormAdviceCentre
         return storm.getAdvice();
     }
 
-    public boolean AddStorm(StormAdviceCentre stormAdviceCentre, Storm storm)
+    public boolean AddStorm(Storm storm)
     {
                 if(storedStorm.containsKey(storm.getStormName()) == false)
                 {
-                    stormAdviceCentre.storedStorm.put(storm.getStormName(), storm);
+                    storedStorm.put(storm.getStormName(), storm);
                     System.out.println(storedStorm.get(storm.getStormName()));
                     return true;
                 }

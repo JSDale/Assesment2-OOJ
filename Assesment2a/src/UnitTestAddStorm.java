@@ -14,7 +14,7 @@ class UnitTestAddStorm
 
         StormAdviceCentre stormAdviceCentre = new StormAdviceCentre();
 
-        assertEquals(true, stormAdviceCentre.AddStorm(stormAdviceCentre, hurricane));
+        assertEquals(true, stormAdviceCentre.AddStorm(hurricane));
     }
 
     @org.junit.jupiter.api.Test
@@ -26,14 +26,14 @@ class UnitTestAddStorm
         hurricane.setWindSpeed(45);
 
         StormAdviceCentre stormAdviceCentre = new StormAdviceCentre();
-        stormAdviceCentre.AddStorm(stormAdviceCentre, hurricane);
+        stormAdviceCentre.AddStorm(hurricane);
 
         hurricane.setStormName("Burtha");
         hurricane.setStormType("Hurricane");
         hurricane.setWindSpeed(67);
 
 
-        assertEquals(false, stormAdviceCentre.AddStorm(stormAdviceCentre, hurricane));
+        assertEquals(false, stormAdviceCentre.AddStorm(hurricane));
     }
 
     @org.junit.jupiter.api.Test
@@ -46,9 +46,9 @@ class UnitTestAddStorm
             hurricane.setStormName("Burtha" + i);
             hurricane.setStormType("Hurricane");
             hurricane.setWindSpeed(45);
-            stormAdviceCentre.AddStorm(stormAdviceCentre, hurricane);
+            stormAdviceCentre.AddStorm(hurricane);
         }
 
-        assertEquals(false, stormAdviceCentre.AddStorm(stormAdviceCentre, hurricane));
+        assertEquals(false, stormAdviceCentre.AddStorm(hurricane));
     }
 }

@@ -198,7 +198,7 @@ public class Gui extends JFrame implements ActionListener
 
                 if(Resources.windSpeedIsInt)
                 {
-                    if(stormAdviceCentre.AddStorm(stormAdviceCentre, hurricane))
+                    if(stormAdviceCentre.AddStorm(hurricane))
                     {
                         DisplayAdvice(hurricane);
 
@@ -222,7 +222,7 @@ public class Gui extends JFrame implements ActionListener
                 //blizzard
                 if(Resources.windSpeedIsInt && Resources.tempIsInt)
                 {
-                    if(stormAdviceCentre.AddStorm(stormAdviceCentre, blizzard))
+                    if(stormAdviceCentre.AddStorm(blizzard))
                     {
                         DisplayAdvice(blizzard);
 
@@ -246,7 +246,7 @@ public class Gui extends JFrame implements ActionListener
 
                if(Resources.windSpeedIsInt)
                {
-                    if(stormAdviceCentre.AddStorm(stormAdviceCentre, tornado))
+                    if(stormAdviceCentre.AddStorm(tornado))
                     {
                         DisplayAdvice(tornado);
 
@@ -319,7 +319,7 @@ public class Gui extends JFrame implements ActionListener
                 JOptionPane.showMessageDialog(null, "Storm updated.");
                 setInputEmpty();
             }
-            else { JOptionPane.showMessageDialog(null, "Storm couldn't update, check name/storm type is correct"); }
+            else { JOptionPane.showMessageDialog(null, "Storm couldn't update. \nCheck name/storm type is correct"); }
         }
 
         else if(ev.getSource().equals(btnDelete))
